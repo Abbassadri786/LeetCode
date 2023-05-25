@@ -6,7 +6,9 @@ public:
 
     void push(int val) {
         if(st.empty()){
-            pair<int,int> p = make_pair(val,val);
+            pair<int,int> p;
+            p.first = val;
+            p.second = val;
             st.push_back(p);
         }
         else{
