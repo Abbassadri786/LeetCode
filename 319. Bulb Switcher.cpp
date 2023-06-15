@@ -8,11 +8,10 @@ public:
         for(int i = 1; i < n; i++){
             int mul = 1;
             mul = i*i;
-            cnt++;
             if(i*i > n){
-                cnt--;
                 break;
             }
+            cnt++;
         }
         return cnt;
         
