@@ -8,14 +8,14 @@ public:
             int mid = (low + high) / 2;
             if(nums[low] <= nums[high]){
                 mini = min(nums[low], mini);
-                break;
+                return mini;
             }
-            // search if min exist in left
+            // if left half sorted then pick min and now go on searching on right half so low = mid + 1
             if(nums[low] <= nums[mid]){
                 mini = min(mini, nums[low]);
                 low = mid + 1;
             }
-            // search if min exists in right
+            // if right half is sorted then pick min and now go on searching on left side
             else{
                 mini= min(nums[mid], mini);
                 high = mid -1;
