@@ -6,13 +6,17 @@ private:
 
         for(int i=0; i<bloomDay.size(); i++){
             if(bloomDay[i] <= days){
+                // to count no. contigous flowers
                 cnt++;
             }
             else{
+                // to track no. of bouquets can be made
                 noBloom += (cnt/k);
+                //reset the count here
                 cnt = 0; 
             }
         }
+        // after running above loop might be possible flower are bloomable and cnt>0 suppose at n-1
         noBloom += (cnt/k);
         return noBloom >=m;
     }
