@@ -1,49 +1,47 @@
 class Solution {
-public:
-    bool isPossibleSol(vector<int>& weights, int days, int sol) {
-        int capacity = sol;
-        int count = 1;
-
-        for (int weight : weights) {
-            if (weight > capacity) {
-                count++;
-                if (count > days) {
-                    return false;
-                }
-                capacity = sol;
+private:
+    bool possible(vector<int>& weights, int days, int cap){
+        // to track load in a ship daywise
+        int load = 0;
+        //lets start days required to laod ship be 1
+        int calDay = 1;
+        for(int i=0; i<weights.size(); i++){
+            // check if load till now + curr weight does not exceed min capacity 
+            if(load + weights[i] > cap){
+                // increment days to load
+                calDay++;
+                // if load calculated > curr weight then just keep that in load
+                load = weights[i];
             }
-            capacity -= weight;
+            else{
+                load += weights[i];
+            }
         }
-        return true;
+        
+        return calDay <= days;
     }
-
+public:
     int shipWithinDays(vector<int>& weights, int days) {
-        int n = weights.size();
-        if (n < days) {
-            return -1;  // Not enough packages to ship within the given days
+        int maxCap = 0, maxi = INT_MIN;
+        int n= weights.size();
+
+        for(int i=0; i<n; i++){
+            maxCap += weights[i];
+            maxi = max(maxi, weights[i]);
         }
+        int low = maxi, high = maxCap;
 
-        int start = 1;
-        int end = 0;
+        while(low <= high){
+            int mid = (low+high) / 2;
 
-        for (int weight : weights) {
-            start = max(start, weight);
-            end += weight;
-        }
-
-        int ans = -1;
-
-        while (start <= end) {
-            int mid = start + (end - start) / 2;
-
-            if (isPossibleSol(weights, days, mid)) {
-                ans = mid;
-                end = mid - 1;
-            } else {
-                start = mid + 1;
+            if(possible(weights, days, mid)){
+                high = mid -1;
+            }
+            else{
+                low = mid + 1;
             }
         }
 
-        return ans;
+        return low;
     }
 };
