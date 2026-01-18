@@ -17,6 +17,7 @@ private:
     }
 
 public:
+// Assuming an array of elements n = 1 to n = Max(nums[i])
     int minEatingSpeed(vector<int>& piles, int h) {
         int low = 1, high = findMax(piles);
 
