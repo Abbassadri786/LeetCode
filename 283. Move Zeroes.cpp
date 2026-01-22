@@ -1,3 +1,18 @@
+//Approach 1: two-pointer approach (i and k) to push zeros to the end while keeping order of non-zero elements.
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int k= 0;
+
+        for(int i=0; i<nums.size(); i++){
+            if(nums[i] != 0){
+                if(i != k) swap(nums[i], nums[k]);
+                k++;
+            }
+        }
+    }
+};
+//Approach 2: Also 2 pointer but unnecessary swaps
 class Solution {
 public:
     void moveZeroes(vector<int>& nums) {
