@@ -32,3 +32,32 @@ public:
         return studentQueue.size();
     }
 };
+
+// Approach 2: Counting 1 & 0
+class Solution {
+public:
+    int countStudents(vector<int>& students, vector<int>& sandwiches) {
+        int n = students.size();
+        int cntOne = 0;
+        int cntZero = 0;
+        
+        for(int i=0; i<n; i++){
+            if(students[i] == 1) cntOne++;
+            else{
+                cntZero++;
+            }
+        }
+
+        for(int sandwich : sandwiches){
+            if(sandwich == 1 && cntOne == 0) return cntZero;
+            if(sandwich == 0 && cntZero == 0) return cntOne;
+            
+            if(sandwich == 1){
+                cntOne--;
+            }else{
+                cntZero--;
+            }
+        }
+        return 0;
+    }
+};
