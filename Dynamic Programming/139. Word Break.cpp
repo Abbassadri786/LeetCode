@@ -31,9 +31,7 @@ class Solution {
 //Approach 2: Memoization 
 class Solution {
   private:
-    bool solve(int idx, string &s,
-               vector<string> &dictionary,
-               vector<int> &dp) {
+    bool solve(int idx, string &s, vector<string> &dictionary, vector<int> &dp) {
 
         // base case
         if(idx == s.length()) return true;
