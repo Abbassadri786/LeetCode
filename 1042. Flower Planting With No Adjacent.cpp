@@ -1,3 +1,4 @@
+// Approach 1 : Similar to graph coloring algorithm using BFS
 class Solution {
 public:
     vector<int> gardenNoAdj(int n, vector<vector<int>>& paths) {
