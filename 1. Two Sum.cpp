@@ -1,3 +1,4 @@
+// Approach: Find target using unordered map
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
