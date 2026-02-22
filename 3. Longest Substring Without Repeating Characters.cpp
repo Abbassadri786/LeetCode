@@ -1,27 +1,25 @@
+// Approach 2: Optimized using hashmap and left right pointer
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        // If the string is empty -> 0
-        if (s.empty()) return 0;
+        int n = s.length();
+        int l = 0, r = 0, maxLen = 0;
+        unordered_map<char, int> hash;
 
-        unordered_set<char> window;
-        int left = 0;
-        int maxi = 0;
-
-        for (int right = 0; right < (int)s.size(); ++right) {
-            char ch = s[right];
-
-            // Move left forward until ch can be inserted (remove duplicates)
-            while (window.count(ch)) {
-                window.erase(s[left]);
-                ++left;
+        while (r < n) {
+            // If character seen before AND inside current window
+            if (hash.find(s[r]) != hash.end() && hash[s[r]] >= l) {
+                l = hash[s[r]] + 1;
             }
 
-            window.insert(ch);
-            maxi = max(maxi, right - left + 1);
+            // Update max length of current window
+            maxLen = max(maxLen, r - l + 1);
+
+            // Store/update last seen index of current character
+            hash[s[r]] = r;
+            r++;
         }
 
-        return maxi;
-        
+        return maxLen;
     }
 };
