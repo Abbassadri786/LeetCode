@@ -1,3 +1,4 @@
+// Approach: Sliding Window(variable) technique
 class Solution {
 public:
     string minWindow(string s, string t) {
