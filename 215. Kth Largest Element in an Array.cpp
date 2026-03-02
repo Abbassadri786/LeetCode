@@ -1,3 +1,4 @@
+// Approach 1: Using min Heap for tracking smaller elements and then if size exceeds K pop it.
 class Solution {
 public:
     int findKthLargest(vector<int>& nums, int k) {
