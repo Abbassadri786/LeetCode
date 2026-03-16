@@ -1,4 +1,5 @@
 class Solution {
+// Implemented using 1D DP
 public:
     int lengthOfLIS(vector<int>& nums) {
 
