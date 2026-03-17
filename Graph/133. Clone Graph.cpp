@@ -30,6 +30,7 @@ private:
                 (newNode->neighbors).push_back(cloneUtil(neighbor, mp));
             }
             else{
+                // push current copy of neighbor in newNode
                 (newNode->neighbors).push_back(mp[neighbor]);
             }
         }
