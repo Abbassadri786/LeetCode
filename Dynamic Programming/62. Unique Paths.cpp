@@ -1,4 +1,6 @@
 class Solution {
+// Using DFS Approach and optimized using DP
+// Robot moves only in right and down direction
 private:
     int dfs(int i, int j, int m, int n, vector<vector<int>> &dp){
 
