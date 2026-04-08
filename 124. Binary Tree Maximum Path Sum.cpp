@@ -1,7 +1,6 @@
 class Solution {
 private:
     // This function returns the maximum path sum starting from this node
-    // and going DOWNWARD (used by parent).
     int maxPathDown(TreeNode* node, int &maxi){
         
         // Base case: if node is NULL, no contribution
