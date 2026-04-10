@@ -1,6 +1,7 @@
 class Solution {
 public:
     vector<string> fullJustify(vector<string>& words, int maxWidth) {
+        //Initializing the result vector
         vector<string> result;
         int n = words.size();
         int i = 0;
