@@ -1,4 +1,5 @@
 class Solution {
+// Solve this using Binary search as we have fixed range of values can track the value using 2 pointers
 private:
     bool possible(vector<int>& weights, int days, int cap){
         // to track load in a ship daywise
