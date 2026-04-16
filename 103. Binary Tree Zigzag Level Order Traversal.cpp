@@ -10,6 +10,7 @@
  * };
  */
 class Solution {
+// Implements BFS traversal using a queue
 public:
     vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
         vector<vector<int>> ans;
