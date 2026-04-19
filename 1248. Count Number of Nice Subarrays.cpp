@@ -1,5 +1,6 @@
 class Solution {
 private:
+// Using Sliding window technique for exactly K odds: func(k) - func(k-1)
     int subArrays(vector<int>& nums, int k){
         // Edge case: no subarray can have negative odd count
         if(k < 0) return 0;
