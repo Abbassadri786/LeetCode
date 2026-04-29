@@ -14,7 +14,6 @@ public:
     // Encodes a tree to a single string using BFS (level-order traversal)
     string serialize(TreeNode* root) {
         
-        // If tree is empty, return empty string
         if(!root) return "";
 
         string s = "";
