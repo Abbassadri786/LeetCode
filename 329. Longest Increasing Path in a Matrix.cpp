@@ -11,7 +11,7 @@ public:
         // If already computed, return cached result
         if(cache[i][j]) return cache[i][j];
         
-        int max_dir_path = 0;
+        int max_dir_path = 1;
 
         // Explore all 4 directions
         for(auto dir: dirs){
@@ -28,7 +28,7 @@ public:
         }
 
         // Include current cell (+1)
-        cache[i][j] = max_dir_path + 1;
+        cache[i][j] = max_dir_path;
         return cache[i][j]; 
     }
 
