@@ -1,5 +1,6 @@
 class Solution {
 public:
+//BFS on an implicit state-space graph
     int racecar(int target) {
         queue<pair<int,pair<int,int>>> q; // (position, (speed, count of instructions))
         q.push({0,{1,0}}); // Initial position
