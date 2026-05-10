@@ -2,7 +2,6 @@ class Solution {
 public:
     int secondHighest(string s) {
         
-        // Stores largest and second largest digit
         int first_max = -1;
         int second_max = -1;
 
