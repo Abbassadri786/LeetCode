@@ -1,7 +1,7 @@
 class Solution {
 public:
     int numberOfSubstrings(string s, int k) {
-        // Using Sliding window technique
+        // Using Sliding window technique - shrink on valid cases
         int n = s.length();
 
         vector<int> freq(26, 0);
