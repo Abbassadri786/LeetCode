@@ -1,5 +1,6 @@
 class Solution {
 public:
+// Sum of N natural numbers
     long long countSubstrings(string s, char c) {
         // simple logic 1+2+3......n so n(n+1)/2
         long long cnt = 0;
