@@ -6,7 +6,7 @@ public:
     int dirY[8] = {-1,0,1,-1,1,-1,0,1};
 
     int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
-
+        // solve it using BFS Algo
         int n = grid.size();
 
         // Source or destination blocked
