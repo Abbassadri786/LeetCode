@@ -7,7 +7,7 @@ public:
 
         int operations = 0;
 
-        // Traverse column by column
+        // Traverse each column from top to bottom.
         for(int col = 0; col < cols; col++) {
 
             // Compare adjacent elements in current column
