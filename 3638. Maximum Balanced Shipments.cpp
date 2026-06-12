@@ -1,3 +1,25 @@
+//Approach 1:
+class Solution {
+public:
+    int maxBalancedShipments(vector<int>& weight) {
+        int ans = 0;
+        int maxi = 0;
+
+        for(int w : weight) {
+            maxi = max(maxi, w);
+
+            // Current shipment becomes balanced
+            if(w < maxi) {
+                ans++;
+                maxi = 0;   // Start a new shipment
+            }
+        }
+
+        return ans;
+    }
+};
+
+//Approach 2:
 class Solution {
 public:
     int maxBalancedShipments(vector<int>& weight) {
