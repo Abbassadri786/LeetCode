@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool checkAlmostEquivalent(string word1, string word2) {
-
+//Since the strings contain only lowercase English letters, we can use arrays
         int freq1[26] = {0};
         int freq2[26] = {0};
 
