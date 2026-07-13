@@ -1,7 +1,7 @@
 class Solution {
 public:
     int largestSubmatrix(vector<vector<int>>& matrix) {
-        // Histogram Heights + Greedy Sorting
+        // Histogram Heights + Greedy Sorting + Matrix
         int n = matrix.size(), m = matrix[0].size();
         int ans = 0;
 
