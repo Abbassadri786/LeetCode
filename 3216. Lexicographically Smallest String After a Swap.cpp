@@ -1,7 +1,6 @@
 class Solution {
 public:
     string getSmallestString(string s) {
-        // My approach:
         // Traverse the string from left to right.
         // For every adjacent pair:
         // 1. Check if both digits have the same parity (both even or both odd).
