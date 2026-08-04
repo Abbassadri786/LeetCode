@@ -26,3 +26,31 @@ public:
         return sum;
     }
 };
+
+//Approach 2 - avoid traversing unnecessary branches.
+class Solution {
+public:
+    int rangeSumBST(TreeNode* root, int low, int high) {
+
+        if(root == nullptr) {
+            return 0;
+        }
+
+        // Current node is smaller than range,
+        // so skip the entire left subtree
+        if(root->val < low) {
+            return rangeSumBST(root->right, low, high);
+        }
+
+        // Current node is larger than range,
+        // so skip the entire right subtree
+        if(root->val > high) {
+            return rangeSumBST(root->left, low, high);
+        }
+
+        // Current node lies within the range
+        return root->val +
+               rangeSumBST(root->left, low, high) +
+               rangeSumBST(root->right, low, high);
+    }
+};  
