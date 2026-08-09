@@ -1,3 +1,4 @@
+// Optimized way storing past results DP
 class Solution {
 public:
     int nthUglyNumber(int n) {
@@ -31,5 +32,46 @@ public:
         }
 
         return ugly[n - 1];
+    }
+};
+
+// Un-Optimized way - after removing all factors of 2, 3, and 5, the remaining number is 1, then it is ugly.
+class Solution {
+private:
+
+    bool isUgly(int num){
+
+        while(num % 2 == 0){
+            num /= 2;
+        }
+
+        while(num % 3 == 0){
+            num /= 3;
+        }
+
+        while(num % 5 == 0){
+            num /= 5;
+        }
+
+        return num == 1;
+    }
+
+public:
+    int nthUglyNumber(int n) {
+
+        int cnt = 0;
+
+        for(int i = 1;; i++){
+
+            if(isUgly(i)){
+                cnt++;
+            }
+
+            if(cnt == n){
+                return i;
+            }
+        }
+
+        return 0;
     }
 };
