@@ -2,6 +2,7 @@ class Solution {
 public:
     string modifyString(string s) {
         int n = s.length();
+        // approach
 
         for(int i=0; i<n; i++){
 
