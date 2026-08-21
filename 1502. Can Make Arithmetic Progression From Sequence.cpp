@@ -2,7 +2,7 @@ class Solution {
 public:
     bool canMakeArithmeticProgression(vector<int>& arr) {
         
-        // Sort elements to check whether they form an arithmetic progression
+        // Sort elements
         sort(arr.begin(), arr.end());
         
         // Common difference between the first two elements
