@@ -1,5 +1,6 @@
 class Solution {
 public:
+// using binary search
     bool isPossible(vector<int>&inventory, int orders, int mid){
         // Checking if number of balls over threshold  of colours are under "orders"
         long long count = 0;
