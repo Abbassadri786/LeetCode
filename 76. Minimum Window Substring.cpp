@@ -1,47 +1,53 @@
 // Approach: Sliding Window(variable) technique
+
 class Solution {
 public:
     string minWindow(string s, string t) {
-        int n = s.length(), m = t.length();
-        int l = 0, r = 0;
-        int minLen = INT_MAX, sIndex = -1, cnt = 0;
+        int k = t.size();
+        int n = s.size();
 
-        unordered_map<char, int> hash;
+        if(k > n) return "";
 
-        // Store frequency of characters in t
-        for(int i = 0; i < m; i++){
-            hash[t[i]]++;
+        // Store the required frequency of each character in t
+        unordered_map<char, int> freq;
+        for(int i = 0; i < k; i++) {
+            freq[t[i]]++;
         }
 
-        while(r < n){
-            // If current char is needed in window
-            if(hash[s[r]] > 0){
-                cnt++;
+        int i = 0, j = 0, start_i = 0;
+        int reqChar = k;  // Total characters still needed (including duplicates)
+        int mini = INT_MAX;
+
+        while(j < n) {
+
+            // Expand window: count a character only if it's still needed
+            if(freq[s[j]] > 0) {
+                reqChar--;
             }
-            // Always decrement (important for extra chars tracking)
-            hash[s[r]]--;
 
-            // Try to shrink window when all characters are matched
-            while(cnt == m){
-                // Update minimum window length
-                if(r - l + 1 < minLen){
-                    minLen = r - l + 1;
-                    sIndex = l;
+            // Decrease frequency (negative means extra occurrences)
+            freq[s[j]]--;
+
+            // All characters of t are present in the current window
+            while(reqChar == 0) {
+
+                // Update the minimum window length and starting index
+                if(mini > j - i + 1) {
+                    mini = j - i + 1;
+                    start_i = i;
                 }
+                // Shrink window from the left
+                freq[s[i]]++;
 
-                // Remove left character from window
-                hash[s[l]]++;
-
-                // If this character was part of t and now missing
-                if(hash[s[l]] > 0){
-                    cnt--;
+                // If a required character is removed, window becomes invalid
+                if(freq[s[i]] > 0) {
+                    reqChar++;
                 }
-
-                l++;
+                i++;
             }
-            r++;
+            j++;
         }
 
-        return (sIndex == -1) ? "" : s.substr(sIndex, minLen);
+        return mini == INT_MAX ? "" : s.substr(start_i, mini);
     }
 };
